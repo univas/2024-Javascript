@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronometro</title>
+    <style>
+        body{
+            background-color: dimgrey;
+            padding: 0;
+            margin: 0;
+        }
+
+        h1{
+            background-color: azure;
+            color: dimgrey;
+            font-weight: bold;
+            font-size: 13em;
+            text-align: center;
+        }
+
+        #conteudo{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="conteudo">
+        <h1>
+            <span id="minutos"></span>:<span id="segundos"></span>:<span id="milissegundos"></span>
+        </h1>
+    </div>
+
+
+    <script>
+        let milissegundos = 5500
+        const spanMinutos = document.getElementById("minutos")
+        const spanSegundos = document.getElementById("segundos")
+        const spanMilissegundos = document.getElementById("milissegundos")
+
+        // pad start é uma função de string não de número
+        spanMinutos.innerText = milissegundos.toString().padStart(2, "0")
+        spanSegundos.innerText = milissegundos.toString().padStart(2, "0")
+        spanMilissegundos.innerText = milissegundos.toString().padStart(2, "0")
+
+        setInterval(() => {
+            milissegundos++
+            
+            spanMilissegundos.innerText = milissegundos % 100
+            spanSegundos.innerText = (Math.floor(milissegundos / 100) % 60).toString().padStart(2, '0')
+
+            spanMinutos.innerText = Math.floor(milissegundos / 6000).toString().padStart(2, '0')
+        }, 10)
+    </script>
+</body>
+</html>
