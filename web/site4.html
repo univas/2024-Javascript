@@ -349,17 +349,27 @@
   const servicosList = Array.from(document.getElementById("servicos").children)
 
   servicosList.forEach(servico => {
+    // Para definir uma função que deve ser executada junto com o lançamento de um evento em tela 
+    // basta adicionarmos uma função callback ao nome do evento com o método addEventListener
     servico.addEventListener('dblclick', (event) => {
-      
+      // Toda função de callback para um evento recebe um parâmetro como padrão (event)
+      // Esta parâmetro contém o evento lançado em si. Podendo acessar os dados do evento e também o próprio elemento alvo
       let existeClasse = false
+
+      // Com a propriedade target do evento, temos o elemento alvo em que o evento foi lançado.
+      // Esta propriedade contém outra que se chama classLista e contém a lista de classes que o elemento possui
+      // ClassList é um array e pode ser trabalhado como tal.
       const qtdeClasses = event.target.classList.length
 
+      // Podemos criar um laço de repetição para verificar se uma classe está contida ou não em determinado elemento.
       for(let i = 0; i < qtdeClasses; i++){
         if(event.target.classList[i] == "fundoColorido"){
           existeClasse = true
         }
       }
 
+      // Para adicionar ou remover classes CSS de um elemento usamos os métodos add e remove respectivamente.
+      // Passando como parâmetro o nome da classe.
       if(existeClasse){
         event.target.classList.remove("fundoColorido")
       }else{
@@ -374,6 +384,8 @@
 
   menusList.forEach(menu => {
     const elementoMenu = menu.children[0]
+    // Com o método setAttribute podemos manipular os diversos atributos de um elemento
+    // Por exmeplo, alterar a propriedade href de um link.
     elementoMenu.setAttribute("href", "https://www.google.com")
   })
 
