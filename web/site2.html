@@ -282,13 +282,17 @@
 
   console.log(cabecalhoResumo)
 
+  // Como temos o elemento children para trazer os filhos de uma tag, temos o parentNode que traz o elemento PAI.
   const tabelaResumo = cabecalhoResumo.parentNode
 
   console.log(tabelaResumo)
 
   //'margin-top'
+  // Usamos a propriedade style de um elemento para estilizar com css quando precisamos.
+  // basta que removemos os - e escrevamos em CamelCase(Ou seja, primeira letra de cada palavra em maiúsculo)
   tabelaResumo.style.marginTop = '50px'
 
+  // Object.keys devolve um array de chaves que determinado objeto possui.
   const nomesDosProdutos = Object.keys(produtosVendidos)
 
   console.log(nomesDosProdutos)
@@ -298,6 +302,8 @@
   console.log(resumoVendas)
 
   nomesDosProdutos.forEach(produto => {
+    // O método createElement cria um elemento HTML passado como parâmetro.
+    // Importante: Apenas cria o elemento em memória, não insere no documento HTML.
     const tr = document.createElement("tr")
 
     const tdProduto = document.createElement("td")
@@ -306,6 +312,8 @@
     tdProduto.innerText = produto
     tdQuantidade.innerText = produtosVendidos[produto]
 
+    // Para inserir um elemento criado no DOM precisamos usar o método appendChild do elemento PAI que desejamos inserir.
+    // Este método vai inserir o elemento ao final do documento.
     tr.appendChild(tdProduto)
     tr.appendChild(tdQuantidade)
 
