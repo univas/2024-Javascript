@@ -161,10 +161,13 @@
   // console.log(document)
 
   // Como ler e manipular conteúdo em texto de tags
+  // O método getElementById busca um determinado elemento dentro do DOM pelo seu ID
   const titulo = document.getElementById("nome-empresa")
   console.log(titulo)
+  // Com o inner text podemos consultar ou alterar o texto dentro de tags.
   const tituloTexto = titulo.innerText
   console.log(tituloTexto)
+  // A função setTimeout executa a função de callback após X milissegundos
   setTimeout(() => {
     titulo.innerText = "Outro título qualquer"
   }, 1000)
@@ -180,10 +183,12 @@
   console.log(sobreAEmpresa)
   const conteudoSobreAEmpresa = sobreAEmpresa.innerText
   console.log(conteudoSobreAEmpresa)
+  // Para alterar o conteúdo de uma tag basta atribuir o novo texto à propriedade innerText
   sobreAEmpresa.innerText = `Novo conteúdo sobre a empresa ${titulo.innerText}`
 
 
-
+  // O método getElementsByClassName busca todos os elementos que possuem a classe passada como parâmetro
+  // Este método retorna um Html Collection com os elementos que atendem o critério
   const menus = document.getElementsByClassName("menu")
   // HTML COLLECTION
   console.log(menus)
@@ -206,6 +211,7 @@
 
   console.log(produtosContainer)
 
+  // A propriedade children de um elemento HTML traz todas as tags filhas daquele elemento.
   const produtos = produtosContainer.children
 
   console.log(produtos)
@@ -230,6 +236,7 @@
   const vendas = document.getElementById("vendas")
   console.log(vendas)
 
+  // Podemos acessar determinado filho pela posição no array
   const conteudovendas = vendas.children[1]
   console.log(conteudovendas)
 
@@ -250,6 +257,8 @@
       produtosVendidos[produtovendido] = 0
     }
 
+    // Sempre um conteúdo lido em tela é como texto, para fazer cálculos matemáticos precisamos converter para número
+    // No caso de valores inteiros podemos usar a função parseInt
     produtosVendidos[produtovendido] += parseInt(quantidadevendida)
   })
 
